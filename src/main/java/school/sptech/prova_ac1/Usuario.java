@@ -1,20 +1,31 @@
 package school.sptech.prova_ac1;
 
-import java.util.Date;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import org.springframework.cglib.core.Local;
 
+import java.time.LocalDate;
+import java.util.Date;
+@Entity
 public class Usuario {
 
-    private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
     private String cpf;
+    private String nome;
     private String email;
     private String senha;
-    private Date dataNascimento;
+    private LocalDate dataNascimento;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -24,6 +35,14 @@ public class Usuario {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getEmail() {
@@ -42,23 +61,16 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public Date getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
     public Usuario() {
     }
 
-    public Usuario(Long id, String cpf, String email, String senha, Date dataNascimento) {
-        this.id = id;
-        this.cpf = cpf;
-        this.email = email;
-        this.senha = senha;
-        this.dataNascimento = dataNascimento;
-    }
 
 }
